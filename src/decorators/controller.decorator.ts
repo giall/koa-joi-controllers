@@ -1,4 +1,4 @@
-import { Route, Param } from "../types/route";
+import { Route, Param } from '../types/route';
 
 
 function getRoutes(prototype: Function): Route[] {

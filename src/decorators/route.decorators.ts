@@ -1,6 +1,6 @@
-import { Handler } from "koa-joi-router";
-import { Middleware } from "koa";
-import { Route, Param } from "../types/route";
+import { Handler } from 'koa-joi-router';
+import { Middleware } from 'koa';
+import { Route, Param } from '../types/route';
 
 /**
  * Stores metadata for a route.
@@ -52,13 +52,13 @@ export function Pre(pre: Handler): Function {
 }
 
 /**
- * Adds additional middleware to route.
+ * Adds additional middleware to the route's middleware chain.
  * 
  * @param middleware Middleware to be called before route handler.
  * 
  * Example:
  * @Get('/:id')
- * @Middleware(async (ctx, next) => {
+ * @Chain(async (ctx, next) => {
  *  console.log(`Route was called with ID: ${ctx.params.id}`);
  *  await next();
  * })
@@ -66,7 +66,7 @@ export function Pre(pre: Handler): Function {
  *  ctx.body = User.findById(id);
  * }
  */
-export function Middleware(...middleware: Middleware[]): Function {
+export function Chain(...middleware: Middleware[]): Function {
   return function(target: Function, propertyKey: string, descriptor: PropertyDescriptor) {
     const fn: Route = descriptor.value;
     fn.middleware = fn.middleware || [];

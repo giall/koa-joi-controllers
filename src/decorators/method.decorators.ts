@@ -10,7 +10,7 @@ function methodDecorator(method: HttpMethod, path: string) {
     } else {
       fn.type = 'route';
     }
-    fn.path = path || '';
+    fn.path = path;
     fn.methods = fn.methods || [];
     fn.methods.push(method);
   }
@@ -27,30 +27,30 @@ function methodDecorator(method: HttpMethod, path: string) {
  *    ctx.body = 'Hello World!';
  *  }
  */
-export function Get(path?: string): Function {
+export function Get(path = ''): Function {
   return methodDecorator('get', path);
 }
 
-export function Post(path?: string): Function {
+export function Post(path = ''): Function {
   return methodDecorator('post', path);
 }
 
-export function Put(path?: string): Function {
+export function Put(path = ''): Function {
   return methodDecorator('put', path);
 }
 
-export function Delete(path?: string): Function {
+export function Delete(path = ''): Function {
   return methodDecorator('delete', path);
 }
 
-export function Head(path?: string): Function {
+export function Head(path = ''): Function {
   return methodDecorator('head', path);
 }
 
-export function Options(path?: string): Function {
+export function Options(path = ''): Function {
   return methodDecorator('options', path);
 }
 
-export function Patch(path?: string): Function {
+export function Patch(path = ''): Function {
   return methodDecorator('patch', path);
 }

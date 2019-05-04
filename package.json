@@ -2,10 +2,13 @@
   "name": "koa-joi-controllers",
   "version": "1.0.0",
   "description": "Controller decorators for Koa using koa-joi-router",
-  "main": "dist/lib.js",
-  "types": "dist/lib.d.ts",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint --fix ./**/*.ts",
+    "test": "tsc --noEmit && npm run lint && jest",
+    "example": "ts-node example/app.ts"
   },
   "keywords": [
     "koa",
@@ -14,13 +17,52 @@
   ],
   "author": "Christos Giallouros",
   "license": "MIT",
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "@typescript-eslint/indent": [
+        "warn",
+        2
+      ],
+      "@typescript-eslint/explicit-member-accessibility": [
+        "off"
+      ],
+      "@typescript-eslint/explicit-function-return-type": [
+        "off"
+      ],
+      "quotes": [
+        "warn",
+        "single"
+      ]
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverage": true
+  },
   "dependencies": {
     "koa": "^2.7.0",
     "koa-joi-router": "^6.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "@types/koa": "^2.0.48",
     "@types/koa-joi-router": "^5.2.2",
+    "@types/supertest": "^2.0.7",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
   }
 }

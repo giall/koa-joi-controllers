@@ -1,5 +1,5 @@
-import { ValidationType, ValidationOptions } from "../types/validation";
-import { Route } from "../types/route";
+import { ValidationType, ValidationOptions } from '../types/validation';
+import { Route } from '../types/route';
 
 /**
  * Validates input based on given options. If validation fails, the middleware

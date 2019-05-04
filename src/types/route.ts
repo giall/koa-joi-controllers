@@ -1,6 +1,6 @@
-import { Handler } from "koa-joi-router";
-import { Middleware } from "koa";
-import { ValidationOptions } from "./validation";
+import { Handler } from 'koa-joi-router';
+import { Middleware } from 'koa';
+import { ValidationOptions } from './validation';
 
 export type HttpMethod = 'get' | 'post' | 'put' | 'delete' | 'head' | 'options' | 'patch';
 
