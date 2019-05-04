@@ -2,7 +2,7 @@
   "compilerOptions": {
       "module": "commonjs",
       "target": "es2017",
-      "outDir": "./dist",
+      "outDir": "./lib",
       "declaration": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true
