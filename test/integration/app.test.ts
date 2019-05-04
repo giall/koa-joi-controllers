@@ -114,27 +114,27 @@ describe('Test Joi validation', () => {
 
   test('should add new Koala', async () => {
     const response = await request(server).post('/koalas').send({
-      name: "Chase Jr.",
-      email: "chase.jr@koala.com",
+      name: 'Chase Jr.',
+      email: 'chase.jr@koala.com',
       birthYear: 2019,
-      variation: "New South Wales"
+      variation: 'New South Wales'
     });
     expect(response.status).toEqual(200);
   });
 
   test('should fail if invalid variation', async () => {
     const response = await request(server).post('/koalas').send({
-      name: "Chase Jr.",
-      email: "chase.jr@koala.com",
+      name: 'Chase Jr.',
+      email: 'chase.jr@koala.com',
       birthYear: 2019,
-      variation: "South Australia"
+      variation: 'South Australia'
     });
     expect(response.status).toEqual(400);
   });
 
   test('should fail if no name in request body', async () => {
     const response = await request(server).post('/koalas').send({
-      email: "chase.jr@koala.com",
+      email: 'chase.jr@koala.com',
       birthYear: 2019
     });
     expect(response.status).toEqual(400);
@@ -142,8 +142,8 @@ describe('Test Joi validation', () => {
 
   test('should fail if name contains invalid characters', async () => {
     const response = await request(server).post('/koalas').send({
-      name: "!£$%^&*()",
-      email: "chase.jr@koala.com",
+      name: '!£$%^&*()',
+      email: 'chase.jr@koala.com',
       birthYear: 2019
     });
     expect(response.status).toEqual(400);
@@ -151,9 +151,9 @@ describe('Test Joi validation', () => {
 
   test('should fail if unexpected fields in request body', async () => {
     const response = await request(server).post('/koalas').send({
-      id: "9",
-      name: "Chase Jr.",
-      email: "chase.jr@koala.com",
+      id: '9',
+      name: 'Chase Jr.',
+      email: 'chase.jr@koala.com',
       birthYear: 2019
     });
     expect(response.status).toEqual(400);
@@ -161,8 +161,8 @@ describe('Test Joi validation', () => {
 
   test('should fail if birth year not in required range', async () => {
     const response = await request(server).post('/koalas').send({
-      name: "Chase Jr.",
-      email: "chase.jr@koala.com",
+      name: 'Chase Jr.',
+      email: 'chase.jr@koala.com',
       birthYear: 2029
     });
     expect(response.status).toEqual(400);
