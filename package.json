@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint --fix ./**/*.ts",
-    "test": "tsc --noEmit && npm run lint && jest",
+    "test": "tsc --noEmit && jest",
     "example": "ts-node example/app.ts"
   },
   "keywords": [
