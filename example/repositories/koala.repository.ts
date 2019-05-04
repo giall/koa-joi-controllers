@@ -16,11 +16,10 @@ export class KoalaRepository {
     this.koalas.push(koala);
   }
 
-  update(koala: Koala): boolean {
+  update(koala: Koala): Koala {
     const index = this.getIndex(koala);
     const found = index >= 0;
-    if (found) this.koalas[index] = koala;
-    return found;
+    return found ? Object.assign(this.koalas[index], koala) : undefined;
   }
 
   delete(koala: Koala): boolean {

@@ -26,38 +26,38 @@ afterAll(() => {
 
 describe('Test RootController routes', () => {
 
-  test('get /hello should return Hello World', async () => {
+  test('should return Hello World', async () => {
     const response = await request(server).get('/hello');
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Hello World');
   });
 
-  test('post /echo should return request body', async () => {
+  test('should return request body', async () => {
     const req = {some: 'json'};
     const response = await request(server).post('/echo').send(req);
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(req);
   });
 
-  test('put /echo should return request body', async () => {
+  test('should return request body', async () => {
     const req = {some: 'json'};
     const response = await request(server).put('/echo').send(req);
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(req);
   });
 
-  test('put /echo should return error status', async () => {
+  test('should return error status', async () => {
     const response = await request(server).put('/echo').send('string request');
     expect(response.status).toEqual(400);
   });
 
-  test('post /echo/form should return 403', async () => {
+  test('should return 403', async () => {
     const response = await request(server).post('/echo/form').send({some: 'json'});
     expect(response.status).toEqual(403);
     expect(response.text).toEqual('Request content type must be application/x-www-form-urlencoded');
   });
 
-  test('get /chain should return array of numbers', async () => {
+  test('should return array of numbers', async () => {
     const response = await request(server).get('/chain');
     expect(response.status).toEqual(200);
     expect(response.body).toEqual([0,1,2,3,4]);
@@ -67,23 +67,44 @@ describe('Test RootController routes', () => {
 
 describe('Test KoalaController routes', () => {
 
-  test('get /all should return all Koalas', async () => {
+  test('should return all Koalas', async () => {
     const response = await request(server).get('/koalas/all');
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(repository.koalas);
   });
 
-  test('get /:id should return Koala with given ID', async () => {
+  test('should return Koala with given ID', async () => {
     const response = await request(server).get('/koalas/1');
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(repository.findById(1));
   });
 
-  test('delete /:id should return Koala with given ID', async () => {
+  test('should update Koala if it exists', async () => {
+    const response = await request(server).put('/koalas').send({
+      id: 1,
+      name: 'Alicia'
+    });
+    expect(response.body.name).toEqual('Alicia');
+  });
+
+  test('should return 404 if Koala does not exist', async () => {
+    const response = await request(server).put('/koalas').send({
+      id: 9,
+      name: 'Daniel'
+    });
+    expect(response.status).toEqual(404);
+  });
+
+  test('should delete Koala with given ID', async () => {
     let response = await request(server).delete('/koalas/1');
     expect(response.status).toEqual(200);
 
     response = await request(server).get('/koalas/1');
+    expect(response.status).toEqual(404);
+  });
+
+  test('should return 404 if no Koala with given ID exists', async () => {
+    let response = await request(server).delete('/koalas/9');
     expect(response.status).toEqual(404);
   });
 
@@ -146,5 +167,4 @@ describe('Test Joi validation', () => {
     });
     expect(response.status).toEqual(400);
   });
-
 });

@@ -48,9 +48,17 @@ export class KoalaController extends KoaController {
 
   @Put()
   @Json()
+  @Validate({
+    body: {
+      id: Validator.Joi.number().required(),
+      name: Validator.Joi.string().max(40).regex(new RegExp('^[a-z A-Z.]+$')),
+      email: Validator.Joi.string().email().max(100)
+    }
+  })
   async update(ctx) {
-    const success = this.repository.update(ctx.request.body);
-    ctx.status = success ? 200 : 404;
+    const koala = this.repository.update(ctx.request.body);
+    ctx.status = koala ? 200 : 404;
+    ctx.body = koala || 'Not Found';
   }
 
   @Delete('/:id')
