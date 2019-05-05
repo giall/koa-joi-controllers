@@ -9,6 +9,10 @@ Controller decorators for [Koa](https://koajs.com/) using [koa-joi-router](https
 ```sh
 npm install koa-joi-controllers
 ```
+If you're using TypeScript, you should also install the type definitions for koa-joi-router:
+```sh
+npm install @types/koa-joi-router --save-dev
+```
 
 ## Usage
 Create a controller class:
