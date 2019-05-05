@@ -1,6 +1,6 @@
 {
   "name": "koa-joi-controllers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Controller decorators for Koa using koa-joi-router",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",
@@ -20,6 +20,14 @@
   ],
   "author": "Christos Giallouros",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christos-giallouros/koa-joi-controllers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christos-giallouros/koa-joi-controllers/issues"
+  },
+  "homepage": "https://github.com/christos-giallouros/koa-joi-controllers",
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "extends": [
@@ -51,7 +59,6 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "koa": "^2.7.0",
     "koa-joi-router": "^6.0.0"
   },
   "devDependencies": {
@@ -63,6 +70,7 @@
     "@typescript-eslint/parser": "^1.7.0",
     "eslint": "^5.16.0",
     "jest": "^24.7.1",
+    "koa": "^2.7.0",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
