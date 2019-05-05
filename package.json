@@ -23,12 +23,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/christos-giallouros/koa-joi-controllers.git"
+    "url": "https://github.com/giall/koa-joi-controllers.git"
   },
   "bugs": {
-    "url": "https://github.com/christos-giallouros/koa-joi-controllers/issues"
+    "url": "https://github.com/giall/koa-joi-controllers/issues"
   },
-  "homepage": "https://github.com/christos-giallouros/koa-joi-controllers",
+  "homepage": "https://github.com/giall/koa-joi-controllers",
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "extends": [
