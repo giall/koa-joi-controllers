@@ -57,7 +57,8 @@ app.listen(3000);
 - [Adding routes via the router](#router)
 - [Using with JavaScript](#javascript)
 
-## Defining controllers <a name="controllers"></a>
+<a name="controllers"></a>
+## Defining controllers
 
 You can create as many controllers as you want. Every controller needs to extend the `KoaController` class and have the `@Controller` decorator. The controller decorators accepts a string parameter, which is the prefix of all the routes in the controller class.
 
@@ -76,7 +77,8 @@ export class KoalaController extends KoaController {
 }
 ```
 
-## HTTP method decorators <a name="method-decorators"></a>
+<a name="method-decorators"></a>
+## HTTP method decorators
 
 You can define a route with a `@Method` decorator, where Method is an Http method. (Get, Post, Put, Delete, Head or Options).
 
@@ -101,7 +103,8 @@ async myFunction(ctx) {
 }
 ```
 
-## Request parameters <a name="request-params"></a>
+<a name="request-params"></a>
+## Request parameters
 
 Request parameters in the route path can be defined by prefixing them with the ':' symbol, and can be accessed in the params field of the context.
 
@@ -114,7 +117,8 @@ async findById(ctx) {
 }
 ```
 
-## Request body <a name="request-body"></a>
+<a name="request-body"></a>
+## Request body
 
 A request's body can be found in `ctx.request.body`, but the request has to be parsed first. In order for the request body to be parsed, you need to specify what type the incoming data is in by using the `@Json`, `@Form` or `@Multipart` decorators.
 
@@ -143,7 +147,8 @@ async createKoala(ctx) {
 
 If the incoming data does not match the expected type, validation will fail and the response status will be set to 400, or the `failure` value set in the `@Validate` decorator.
 
-## Joi validation <a name="joi-validation"></a>
+<a name="joi-validation"></a>
+## Joi validation
 
 The `@Validate` decorator can enforce [Joi](https://github.com/hapijs/joi) validation on request body parameters. If validation fails, response status is set to 400 and the route handler is never called. If you want to handle the error, you can set the `continueOnError` (default: `false`) field to `true`.
 
@@ -169,7 +174,8 @@ async createKoala(ctx) {
 }
 ```
 
-## Named route parameter middleware <a name="param"></a>
+<a name="param"></a>
+## Named route parameter middleware
 
 You can define middleware for named route parameters. This is useful for auto-loading or validation.
 
@@ -187,7 +193,8 @@ async findById(ctx) {
 }
 ```
 
-## Multiple middleware support <a name="middleware"></a>
+<a name="middleware"></a>
+## Multiple middleware support
 
 You can use the `@Pre` and `@Chain` decorators to add additional middleware to a specific route. The `Pre` middleware is called first, followed by the `Chain` middleware (can be multiple).
 
@@ -215,7 +222,8 @@ You can use the `@Pre` and `@Chain` decorators to add additional middleware to a
   // GET /chain -> [0, 1, 2, 3, 4]
   ```
 
-## Adding metadata <a name="metadata"></a>
+<a name="metadata"></a>
+## Adding metadata
 
 You can store metadata about a route. This isn't used but is stored along with all other route data.
 
@@ -232,7 +240,8 @@ async hello(ctx) {
 }
 ```
 
-## Adding routes via the router <a name="router"></a>
+<a name="router"></a>
+## Adding routes via the router
 
 If you're looking for functionality that is not available with the current decorators, but is possible with [koa-joi-router](https://github.com/koajs/joi-router), you can achieve this by extending the `router()` method in your controller class.
 
@@ -258,7 +267,8 @@ export class MyController extends KoaController {
 }
 ```
 
-## Using with JavaScript <a name="javascript"></a>
+<a name="javascript"></a>
+## Using with JavaScript
 
 In order to use ES6 imports and decorators in a JavaScript project, some additional configurations need to be made. Install the necessary `babel` dependencies:
 
