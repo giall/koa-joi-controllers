@@ -2,9 +2,9 @@
 
 Controller decorators for [Koa](https://koajs.com/) using [koa-joi-router](https://github.com/koajs/joi-router).
 
-[![npm version](https://img.shields.io/badge/npm-v1.0.3-blue.svg)](https://www.npmjs.com/package/koa-joi-controllers)
-[![Build Status](https://travis-ci.com/christos-giallouros/koa-joi-controllers.svg?branch=master)](https://travis-ci.com/christos-giallouros/koa-joi-controllers)
-[![codecov](https://codecov.io/gh/christos-giallouros/koa-joi-controllers/branch/master/graph/badge.svg)](https://codecov.io/gh/christos-giallouros/koa-joi-controllers)
+[![npm version](https://img.shields.io/badge/npm-v1.0.4-blue.svg)](https://www.npmjs.com/package/koa-joi-controllers)
+[![Build Status](https://travis-ci.com/giall/koa-joi-controllers.svg?branch=master)](https://travis-ci.com/giall/koa-joi-controllers)
+[![codecov](https://codecov.io/gh/giall/koa-joi-controllers/branch/master/graph/badge.svg)](https://codecov.io/gh/giall/koa-joi-controllers)
 
 ## Installation
 ```sh

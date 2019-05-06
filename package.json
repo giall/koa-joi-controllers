@@ -1,6 +1,6 @@
 {
   "name": "koa-joi-controllers",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Controller decorators for Koa using koa-joi-router",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",
