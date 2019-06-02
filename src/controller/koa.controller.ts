@@ -15,7 +15,6 @@ export abstract class KoaController {
   router(): Router {
     const router = createRouter();
     const base = (this.base) ? `/${this.base}`.replace('//', '/') : '';
-    console.log(base);
     const prefix = `/${this.prefix}`.replace('//', '/');
     router.prefix(base + prefix);
     router.route(this.routes.map(route => this.fromRoute(route)));
