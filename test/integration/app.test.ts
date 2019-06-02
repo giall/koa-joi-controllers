@@ -13,9 +13,12 @@ beforeAll(() => {
   const app = new Koa();
 
   configureRoutes(app, [
-    new KoalaController(repository),
-    new RootController()
+    new KoalaController(repository)
   ]);
+
+  configureRoutes(app, [
+    new RootController()
+  ], '/api');
 
   server = app.listen(3000);
 });
@@ -27,38 +30,38 @@ afterAll(() => {
 describe('Test RootController routes', () => {
 
   test('should return Hello World', async () => {
-    const response = await request(server).get('/hello');
+    const response = await request(server).get('/api/hello');
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Hello World');
   });
 
   test('should return request body', async () => {
     const req = {some: 'json'};
-    const response = await request(server).post('/echo').send(req);
+    const response = await request(server).post('/api/echo').send(req);
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(req);
   });
 
   test('should return request body', async () => {
     const req = {some: 'json'};
-    const response = await request(server).put('/echo').send(req);
+    const response = await request(server).put('/api/echo').send(req);
     expect(response.status).toEqual(200);
     expect(response.body).toEqual(req);
   });
 
   test('should return error status', async () => {
-    const response = await request(server).put('/echo').send('string request');
+    const response = await request(server).put('/api/echo').send('string request');
     expect(response.status).toEqual(400);
   });
 
   test('should return 403', async () => {
-    const response = await request(server).post('/echo/form').send({some: 'json'});
+    const response = await request(server).post('/api/echo/form').send({some: 'json'});
     expect(response.status).toEqual(403);
     expect(response.text).toEqual('Request content type must be application/x-www-form-urlencoded');
   });
 
   test('should return array of numbers', async () => {
-    const response = await request(server).get('/chain');
+    const response = await request(server).get('/api/chain');
     expect(response.status).toEqual(200);
     expect(response.body).toEqual([0,1,2,3,4]);
   });

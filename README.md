@@ -21,7 +21,7 @@ Create a controller class:
 ```js
 import { Get, Controller, KoaController } from 'koa-joi-controllers';
 
-@Controller('/api')
+@Controller('/v1')
 export class MyController extends KoaController {
   @Get('/hello')
   async hello(ctx) {
@@ -38,10 +38,10 @@ import { configureRoutes } from 'koa-joi-controllers';
 const app = new Koa();
 configureRoutes(app, [
   new MyController();
-]);
+], '/api'); // optional prefix for all routes
 app.listen(3000);
 
-// GET /api/hello -> 'Hello World'
+// GET /api/v1/hello -> 'Hello World'
 ```
 
 # Overview

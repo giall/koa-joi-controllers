@@ -11,9 +11,13 @@ import { Pre, Chain, Param, Meta } from './decorators/route.decorators';
  * 
  * @param app The Koa app the routes should be applied to.
  * @param controllers An array of KoaControllers with routes defined.
+ * @param prefix Optional base prefix for all configured routes.
  */
-export function configureRoutes(app: Koa, controllers: KoaController[]) {
-  controllers.forEach(controller => app.use(controller.router().middleware()));
+export function configureRoutes(app: Koa, controllers: KoaController[], prefix?: string) {
+  controllers.forEach(controller => {
+    controller.base = prefix;
+    app.use(controller.router().middleware());
+  });
 }
 
 export { Controller, KoaController };

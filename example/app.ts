@@ -11,7 +11,7 @@ const koalaRepository = new KoalaRepository();
 configureRoutes(app, [
   new KoalaController(koalaRepository),
   new RootController()
-]);
+], '/api');
 
 app.listen(3000);
 console.log('Server running on port 3000...');
