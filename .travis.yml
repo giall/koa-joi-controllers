@@ -3,5 +3,7 @@ node_js:
   - "lts/*"
 install:
   - npm install && npm install -g codecov
+before_script:
+  - npm audit
 script:
   - npm test && codecov
