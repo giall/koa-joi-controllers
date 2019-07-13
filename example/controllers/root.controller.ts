@@ -1,4 +1,4 @@
-import { Controller, KoaController, Get, Pre, Chain, Post, Put, Json, Form, Validate } from '../../src/main';
+import { Controller, KoaController, Get, Pre, Chain, Post, Put, Json, Validate } from '../../src/main';
 
 @Controller()
 export class RootController extends KoaController {
