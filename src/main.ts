@@ -5,6 +5,7 @@ import { Controller } from './decorators/controller.decorator';
 import { Get, Post, Put, Delete, Head, Options, Patch } from './decorators/method.decorators';
 import { Validate, Json, Form, Multipart } from './decorators/validation.decorators';
 import { Pre, Chain, Param, Meta } from './decorators/route.decorators';
+import { ValidationError } from 'joi';
 
 /**
  * Applies the routes defined in given KoaControllers to the Koa app.
@@ -28,7 +29,7 @@ export { Validate, Json, Form, Multipart };
 
 export { Pre, Chain, Param, Meta };
 
-let Validator = {
+const Validator = {
   Joi: JoiRouter.Joi
 };
-export { Validator };
+export { Validator, ValidationError };
