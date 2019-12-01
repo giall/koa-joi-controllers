@@ -157,6 +157,7 @@ import { Post, Validate, Validator } from 'koa-joi-controllers';
 
 @Post('/koalas')
 @Validate({
+  type: 'json',
   body: {
     name: Validator.Joi.string().max(40),
     email: Validator.Joi.string().lowercase().email(),
@@ -200,24 +201,23 @@ You can use the `@Pre` and `@Chain` decorators to add additional middleware to a
 
 ```js
 @Get('/chain')
-  @Pre(async (ctx, next) => {
-    ctx.body = [0];
-    await next();
-  })
-  @Chain(async (ctx, next) => {
-    ctx.body.push(1);
-    await next();
-  })
-  @Chain(async (ctx, next) => {
-    ctx.body.push(2);
-    await next();
-  }, async (ctx, next) => {
-    ctx.body.push(3);
-    await next();
-  })
-  async chain(ctx) {
-    ctx.body.push(4);
-  }
+@Pre(async (ctx, next) => {
+  ctx.body = [0];
+  await next();
+})
+@Chain(async (ctx, next) => {
+  ctx.body.push(1);
+  await next();
+})
+@Chain(async (ctx, next) => {
+  ctx.body.push(2);
+  await next();
+}, async (ctx, next) => {
+  ctx.body.push(3);
+  await next();
+})
+async chain(ctx) {
+  ctx.body.push(4);}
 
   // GET /chain -> [0, 1, 2, 3, 4]
   ```
