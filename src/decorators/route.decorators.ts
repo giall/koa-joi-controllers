@@ -19,7 +19,7 @@ import { Route, Param } from '../types/route';
  *  ctx.body = 'Hello World';
  * }
  */
-export function Meta(metadata: object): Function {
+export function Meta(metadata: Record<string, unknown>): Function {
   return function(target: Function, propertyKey: string, descriptor: PropertyDescriptor) {
     const fn: Route = descriptor.value;
     fn.meta = {
