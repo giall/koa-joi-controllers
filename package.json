@@ -49,6 +49,9 @@
       "@typescript-eslint/explicit-function-return-type": [
         "off"
       ],
+      "@typescript-eslint/ban-types": [
+        "off"
+      ],
       "quotes": [
         "warn",
         "single"

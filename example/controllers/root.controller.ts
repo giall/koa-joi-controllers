@@ -1,16 +1,17 @@
 import { Controller, KoaController, Get, Pre, Chain, Post, Put, Json, Validate } from '../../src/main';
+import { Context } from 'koa';
 
 @Controller()
 export class RootController extends KoaController {
 
   @Get('/hello')
-  async hello(ctx) {
+  async hello(ctx: Context): Promise<void> {
     ctx.body = 'Hello World';
   }
 
   @Post('/echo') @Put('/echo')
   @Json()
-  async echo(ctx) {
+  async echo(ctx: Context): Promise<void> {
     ctx.body = ctx.request.body;
   }
 
@@ -19,7 +20,7 @@ export class RootController extends KoaController {
     type: 'form',
     continueOnError: true // default is false
   })
-  async echoForm(ctx) {
+  async echoForm(ctx: Context): Promise<void> {
     if (ctx.invalid) {
       ctx.status = 403;
       ctx.body = 'Request content type must be application/x-www-form-urlencoded';
@@ -42,7 +43,7 @@ export class RootController extends KoaController {
     ctx.body.push(3);
     await next();
   })
-  async chain(ctx) {
+  async chain(ctx: Context): Promise<void> {
     ctx.body.push(4);
   }
 

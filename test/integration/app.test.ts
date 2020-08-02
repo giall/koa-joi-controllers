@@ -107,7 +107,7 @@ describe('Test KoalaController routes', () => {
   });
 
   test('should return 404 if no Koala with given ID exists', async () => {
-    let response = await request(server).delete('/koalas/9');
+    const response = await request(server).delete('/koalas/9');
     expect(response.status).toEqual(404);
   });
 

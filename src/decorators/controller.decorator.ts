@@ -19,6 +19,7 @@ function getParams(prototype: Function): Param[] {
  * @param prefix The prefix of all the routes of the controller. 
  */
 export function Controller(prefix?: string): Function {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return function<T extends {new(...args: any[]): {}}>(constructor: T): Function {
     return class extends constructor {
       prefix = prefix || '';

@@ -10,7 +10,7 @@ export interface Route extends Function {
   path: string;
   validate?: ValidationOptions;
   pre?: Handler;
-  meta?: any;
+  meta?: object;
   middleware? : Middleware[];
 }
 

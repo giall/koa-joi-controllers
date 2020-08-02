@@ -17,4 +17,4 @@ export interface ValidationOptions {
   multipartOptions?: CoBody.Options;
   output?: { [status: string]: OutputValidation };
   continueOnError?: boolean;
-};
+}

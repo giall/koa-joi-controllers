@@ -14,7 +14,7 @@ import { ValidationError } from 'joi';
  * @param controllers An array of KoaControllers with routes defined.
  * @param prefix Optional base prefix for all configured routes.
  */
-export function configureRoutes(app: Koa, controllers: KoaController[], prefix?: string) {
+export function configureRoutes(app: Koa, controllers: KoaController[], prefix?: string): void {
   controllers.forEach(controller => {
     controller.base = prefix;
     app.use(controller.router().middleware());
