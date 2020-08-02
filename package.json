@@ -1,6 +1,6 @@
 {
   "name": "koa-joi-controllers",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Controller decorators for Koa using koa-joi-router",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",
@@ -61,15 +61,15 @@
     "koa-joi-router": "^6.0.2"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^26.0.8",
     "@types/koa": "^2.11.3",
     "@types/koa-joi-router": "^5.2.3",
     "@types/qs": "^6.9.4",
     "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
-    "eslint": "^7.5.0",
-    "jest": "^26.2.1",
+    "eslint": "^7.6.0",
+    "jest": "^26.2.2",
     "koa": "^2.13.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.4",
